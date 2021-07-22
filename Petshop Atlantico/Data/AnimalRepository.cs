@@ -58,7 +58,7 @@ namespace Petshop_Atlantico.Data
             }
         }
 
-        public IEnumerable<AnimalListModel> GetList(string name, string ownerName, HealthStatus? healthStatus, int pageSize, int pageIndex)
+        public List<AnimalListModel> GetList(string name, string ownerName, HealthStatus? healthStatus, int pageSize, int pageIndex)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace Petshop_Atlantico.Data
                 if (healthStatus != null)
                     query = query.Where(p => p.HealthStatus == healthStatus);
 
-                return query;
+                return query.ToList();
             }
             catch (Exception ex)
             {

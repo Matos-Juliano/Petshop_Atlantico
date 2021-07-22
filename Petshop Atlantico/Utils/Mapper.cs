@@ -21,7 +21,10 @@ namespace Petshop_Atlantico.Utils
                 {
                     Id = model.Owner.Id,
                     Name = model.Owner.Name,
-                    PhoneNumber = model.Owner.PhoneNumber != null ? Utils.FilterPhoneNumber(model.Owner.PhoneNumber) : null
+                    PhoneNumber = model.Owner.PhoneNumber != null ? Utils.FilterPhoneNumber(model.Owner.PhoneNumber) : null,
+                    Address = model.Owner.Address,
+                    Number = model.Owner.Number,
+                    City = model.Owner.City
                 },
                 HospitalizationReason = model.HospitalizationReason,
                 Lodge = model.Lodge.Id,

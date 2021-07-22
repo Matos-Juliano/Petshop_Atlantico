@@ -9,9 +9,9 @@ namespace Petshop_Atlantico.Data
 {
     public interface ILodgingRepo
     {
-        public IEnumerable<Lodging> GetList();
+        public List<Lodging> GetList();
 
-        public IEnumerable<int> GetUnnocupiedList();
+        public List<int> GetUnnocupiedList();
 
         public Lodging GetLodgingById(int id);
 

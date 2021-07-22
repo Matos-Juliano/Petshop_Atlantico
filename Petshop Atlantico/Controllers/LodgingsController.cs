@@ -20,7 +20,7 @@ namespace Petshop_Atlantico.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Lodging> lodgings = _lodgingRepo.GetList();
+            List<Lodging> lodgings = _lodgingRepo.GetList();
 
             return View("~/Views/Lodgings/LodgingList.cshtml", lodgings);
         }
@@ -30,7 +30,7 @@ namespace Petshop_Atlantico.Controllers
         {
             try
             {
-                IEnumerable<int> list = _lodgingRepo.GetUnnocupiedList();
+                List<int> list = _lodgingRepo.GetUnnocupiedList();
 
                 return Ok(list);
             }

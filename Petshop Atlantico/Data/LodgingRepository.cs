@@ -16,7 +16,7 @@ namespace Petshop_Atlantico.Data
             _context = context;
         }
         
-        public IEnumerable<int> GetUnnocupiedList()
+        public List<int> GetUnnocupiedList()
         {
             return _context.Lodgings.Where(p => p.OccupationStatus == 0).Select(p =>  p.Id ).ToList();
         }
@@ -33,7 +33,7 @@ namespace Petshop_Atlantico.Data
             }
         }
 
-        public IEnumerable<Lodging> GetList()
+        public List<Lodging> GetList()
         {
             return _context.Lodgings.ToList();
         }

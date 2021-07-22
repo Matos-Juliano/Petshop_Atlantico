@@ -10,7 +10,7 @@ namespace Petshop_Atlantico.Data
 {
     public interface IAnimalRepo
     {
-        public IEnumerable<AnimalListModel> GetList(string name, string ownerName, HealthStatus? healthStatus, int pageSize, int pageIndex);
+        public List<AnimalListModel> GetList(string name, string ownerName, HealthStatus? healthStatus, int pageSize, int pageIndex);
 
         public AnimalViewModel GetAnimalById(int id);
 

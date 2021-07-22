@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Petshop Atlantico", "Petshop Atlantico\Petshop Atlantico.csproj", "{0B662AA9-33CF-4258-AEB0-E8238AB35EBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Petshop Atlantico", "Petshop Atlantico\Petshop Atlantico.csproj", "{0B662AA9-33CF-4258-AEB0-E8238AB35EBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Petshop_Atlantico.IntegrationTests", "Petshop_Atlantico.IntegrationTests\Petshop_Atlantico.IntegrationTests.csproj", "{F781BCF7-70EF-45FF-BD56-85C420EFBFF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0B662AA9-33CF-4258-AEB0-E8238AB35EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B662AA9-33CF-4258-AEB0-E8238AB35EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B662AA9-33CF-4258-AEB0-E8238AB35EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F781BCF7-70EF-45FF-BD56-85C420EFBFF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F781BCF7-70EF-45FF-BD56-85C420EFBFF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F781BCF7-70EF-45FF-BD56-85C420EFBFF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F781BCF7-70EF-45FF-BD56-85C420EFBFF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

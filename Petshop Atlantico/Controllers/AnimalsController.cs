@@ -57,7 +57,7 @@ namespace Petshop_Atlantico.Controllers
         {
             try
             {
-                IEnumerable<AnimalListModel> animals = _animalRepo.GetList(animal.Name, animal.OwnerName, animal.HealthStatus, animal.PageSize, animal.PageIndex);
+                List<AnimalListModel> animals = _animalRepo.GetList(animal.Name, animal.OwnerName, animal.HealthStatus, animal.PageSize, animal.PageIndex);
 
                 return PartialView("~/Views/Animals/AnimalList.cshtml", animals);
             }

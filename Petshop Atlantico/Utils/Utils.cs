@@ -20,8 +20,6 @@ namespace Petshop_Atlantico.Utils
         {
             try
             {
-                if (number.Length > 11)
-                    throw new Exception("Numero de Telefone Invalido");
                 return Regex.Replace(number, @"[^0-9]+", "");
             }
             catch(Exception ex)
