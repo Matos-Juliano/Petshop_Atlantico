@@ -1,0 +1,78 @@
+﻿@model Petshop_Atlantico.Models.AnimalViewModel
+
+@{
+    ViewData["Title"] = "EditAnimal";
+}
+
+<h1>Edit Pet</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditAnimal">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" hidden value="@Model.Id" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Owner.Id" class="form-control" hidden value="@Model.Owner.Id" />
+                <span asp-validation-for="Owner.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Dono:</label>
+                <input asp-for="Owner.Name" class="form-control" />
+                <span asp-validation-for="Owner.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Contato:</label>
+                <input asp-for="Owner.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Owner.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HospitalizationReason" class="control-label"></label>
+                <input asp-for="HospitalizationReason" class="form-control" />
+                <span asp-validation-for="HospitalizationReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HealthStatus" class="control-label">Situação do Animal</label>
+                <select asp-for="HealthStatus">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PictureFile" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="PictureFile" type="file" class="custom-file-input" accept="jpg JPEG PNG" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                </div>
+                <span asp-validation-for="PictureFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lodge.Id" class="control-label">Situação do Animal</label>
+                <select asp-for="Lodge.Id">
+                    @{ if (Model.Lodge != null)
+                        {
+                            <option value="@Model.Lodge.Id">Vaga @Model.Lodge.Id</option>
+                        }
+
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/AddAnimal.js"></script>
+}

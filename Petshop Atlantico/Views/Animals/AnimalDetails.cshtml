@@ -1,0 +1,92 @@
+﻿@model Petshop_Atlantico.Models.AnimalViewModel
+
+@{
+    ViewData["Title"] = "AnimalDetails";
+}
+
+<h1>Detalhes do Pet</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <div class="row">
+            <div class="col-5">
+                @{
+                    if (!String.IsNullOrEmpty(Model.Picture))
+                    {
+
+                        <img src="~/images/@Model.Picture" alt="ProfilePic" width="100" height="100">
+
+                    }
+                }
+            </div>
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <dt class="col-5">
+                                @Html.DisplayNameFor(model => model.Name)
+                            </dt>
+                        </div>
+                        <div class="row">
+                            <dd class="col-5">
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+                        </div>
+                    </div>
+                    <div class="col-4 offset-3">
+                        <div class="row">
+                            <dt class="col-4">
+                                @Html.DisplayNameFor(model => model.HealthStatus)
+                            </dt>
+                        </div>
+                        <div class="row">
+                            <dd class="col-4">
+                                @Html.DisplayFor(model => model.HealthStatus)
+                            </dd>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10">
+                        <div class="row">
+                            <dt class="col-2">
+                                @Html.DisplayNameFor(model => model.HospitalizationReason)
+                            </dt>
+                        </div>
+                        <div class="row">
+                            <dd class="col-2">
+                                @Html.DisplayFor(model => model.HospitalizationReason)
+                            </dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dl>
+</div>
+@{
+    if (Model.Lodge != null)
+    {
+    <form asp-controller="Lodgings" asp-action="DeliverAnimal">
+        <div class="form-group">
+            <div class="form-group">
+                <div class="form-group">
+                    <input name="id" class="form-control" hidden value="@Model.Lodge.Id" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Entregar Pet" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+    }
+}
+<div>
+    @Html.ActionLink("Edit", "GoToEditAnimal", new { Model.Id }) 
+    | <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/js/AnimalDetails.js"></script>
+}
