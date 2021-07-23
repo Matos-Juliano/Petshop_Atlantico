@@ -89,7 +89,7 @@ namespace Petshop_Atlantico.IntegrationTests
             });
             ctx.SaveChanges();
 
-            Assert.ThrowsException<InvalidOperationException>(() => new AnimalsController(animalRepo).AnimalDetails(10));
+            Assert.ThrowsException<NullReferenceException>(() => new AnimalsController(animalRepo).AnimalDetails(10));
         }
 
         [TestMethod]
