@@ -4,6 +4,7 @@ using Petshop_Atlantico.Enums;
 using Petshop_Atlantico.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,9 +21,16 @@ namespace Petshop_Atlantico.Controllers
 
         public IActionResult Index()
         {
-            List<Lodging> lodgings = _lodgingRepo.GetList();
+            try
+            {
+                List<Lodging> lodgings = _lodgingRepo.GetList();
 
-            return View("~/Views/Lodgings/LodgingList.cshtml", lodgings);
+                return View("~/Views/Lodgings/LodgingList.cshtml", lodgings);
+            }
+            catch
+            {
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
         }
 
         [HttpGet]

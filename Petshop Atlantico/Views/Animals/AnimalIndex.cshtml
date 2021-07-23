@@ -9,33 +9,36 @@
 <p>
     <a asp-action="AddAnimal">Create New</a>
 </p>
-<form id="SearchFilters" method="post">
-    <div class="form-actions no-color">
-        <div class="row">
-            <div class="col-md-4">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-            </div>
-            <div class="col-md-4">
-                <label asp-for="OwnerName" class="control-label"></label>
-                <input asp-for="OwnerName" class="form-control" />
-            </div>
-            <div class="col-md-2">
-                <div class="row">
-                    <label asp-for="HealthStatus" class="control-label">Situação do Animal</label>
+<div class="container">
+    <form id="SearchFilters" method="post">
+        <div class="form-actions no-color">
+            <div class="row">
+                <div class="col-md-4">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
                 </div>
-                <div class="row">
-                    <select asp-for="HealthStatus">
-                    </select>
+                <div class="col-md-4">
+                    <label asp-for="OwnerName" class="control-label"></label>
+                    <input asp-for="OwnerName" class="form-control" />
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <input id="Search" value="Pesquisar" class="btn btn-primary" />
+                <div class="col-md-2">
+                    <div class="row">
+                        <label asp-for="HealthStatus" class="control-label">Situação do Animal</label>
+                    </div>
+                    <div class="row">
+                        <select asp-for="HealthStatus">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input id="Search" value="Pesquisar" class="btn btn-primary" />
+                    </div>
                 </div>
             </div>
         </div>
-</form>
+    </form>
+</div>
 
 <div id="AnimalList"></div>
 

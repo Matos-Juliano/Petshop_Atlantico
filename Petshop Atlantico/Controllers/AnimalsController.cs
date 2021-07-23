@@ -6,6 +6,7 @@ using Petshop_Atlantico.Models.DTOs;
 using Petshop_Atlantico.Utils;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Petshop_Atlantico.Controllers
 {
@@ -33,8 +34,16 @@ namespace Petshop_Atlantico.Controllers
         [HttpGet("animals/view/{id}")]
         public IActionResult AnimalDetails(int id)
         {
-            AnimalViewModel animal = _animalRepo.GetAnimalById(id);
-            return View("~/Views/Animals/AnimalDetails.cshtml", animal);
+            try
+            {
+                AnimalViewModel animal = _animalRepo.GetAnimalById(id);
+                return View("~/Views/Animals/AnimalDetails.cshtml", animal);
+            }
+            catch
+            {
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
+            
         }
 
         [HttpPost]
@@ -48,7 +57,7 @@ namespace Petshop_Atlantico.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest(ex);
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
         }
 
@@ -78,7 +87,7 @@ namespace Petshop_Atlantico.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest(ex);
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
         }
 
@@ -93,7 +102,7 @@ namespace Petshop_Atlantico.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
         }
 
