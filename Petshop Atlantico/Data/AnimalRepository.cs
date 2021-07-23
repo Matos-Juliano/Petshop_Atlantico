@@ -45,7 +45,10 @@ namespace Petshop_Atlantico.Data
                                 {
                                     Id = owner.Id,
                                     Name = owner.Name,
-                                    PhoneNumber = owner.PhoneNumber
+                                    PhoneNumber = owner.PhoneNumber, 
+                                    Address = owner.Address,
+                                    Number = owner.Number,
+                                    City = owner.City
                                 },
                                 Lodge = lodging
                             };
@@ -110,7 +113,10 @@ namespace Petshop_Atlantico.Data
                 Owner owner = new Owner
                 {
                     Name = animal.Owner.Name,
-                    PhoneNumber = animal.Owner.PhoneNumber
+                    PhoneNumber = animal.Owner.PhoneNumber,
+                    Address = animal.Owner.Address,
+                    Number = animal.Owner.Number,
+                    City = animal.Owner.City
                 }; 
 
                 _context.Owners.Add(owner);
@@ -165,17 +171,23 @@ namespace Petshop_Atlantico.Data
                 {
                     Id = (int)animal.Owner.Id,
                     Name = animal.Owner.Name,
-                    PhoneNumber = animal.Owner.PhoneNumber
+                    PhoneNumber = animal.Owner.PhoneNumber,
+                    Address = animal.Owner.Address,
+                    Number = animal.Owner.Number,
+                    City = animal.Owner.City
                 };
                 _context.Owners.Update(owner);
                 _context.SaveChanges();
+
+                AnimalViewModel oldAnim = GetAnimalById((int)animal.Id);
 
                 Animal updatedAnimal = new Animal()
                 {
                     Id = (int)animal.Id,
                     Name = animal.Name,
                     HospitalizationReason = animal.HospitalizationReason,
-                    HealthStatus = (HealthStatus)animal.HealthStatus
+                    HealthStatus = (HealthStatus)animal.HealthStatus,
+                    Picture = oldAnim.Picture
                 };
 
                 if (animal.PictureFile != null)

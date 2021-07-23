@@ -8,7 +8,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="EditAnimal">
+        <form enctype="multipart/form-data" asp-action="EditAnimal">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <input asp-for="Id" class="form-control" hidden value="@Model.Id" />
@@ -38,7 +38,7 @@
                 <span asp-validation-for="Owner.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="control-label">Numero:</label>
+                <label class="control-label">Número:</label>
                 <input asp-for="Owner.Number" class="form-control" />
                 <span asp-validation-for="Owner.Number" class="text-danger"></span>
             </div>

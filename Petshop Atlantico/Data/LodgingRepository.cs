@@ -35,7 +35,18 @@ namespace Petshop_Atlantico.Data
 
         public List<Lodging> GetList()
         {
-            return _context.Lodgings.ToList();
+
+           var query = from lodging in _context.Lodgings
+                        join animal in _context.Animals on lodging.Occupant.Id equals animal.Id into a
+                        from animal in a.DefaultIfEmpty()
+                        select new Lodging
+                        {
+                            Id = lodging.Id,
+                            OccupationStatus = lodging.OccupationStatus,
+                            Occupant = animal
+                        };
+
+            return query.ToList();
         }
 
         public Lodging GetLodgingByOccupant(int id)
@@ -59,8 +70,11 @@ namespace Petshop_Atlantico.Data
 
                 lodging.OccupationStatus = occupationStatus;
 
+
                 if (occupationStatus == OccupationStatus.Free)
+                {
                     lodging.Occupant = null;
+                }
 
                 _context.Lodgings.Update(lodging);
                 _context.SaveChanges();

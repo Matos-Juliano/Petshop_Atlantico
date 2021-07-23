@@ -8,9 +8,9 @@
 
 <div>
     <hr />
-    <dl class="row">
+    <div class="container">
         <div class="row">
-            <div class="col-5">
+            <div class="col-sm-2">
                 @{
                     if (!String.IsNullOrEmpty(Model.Picture))
                     {
@@ -20,42 +20,40 @@
                     }
                 }
             </div>
-            <div class="col-lg-7">
+            <div class="col-sm">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-sm">
                         <div class="row">
-                            <dt class="col-5">
-                                @Html.DisplayNameFor(model => model.Name)
+                            <dt class="col-sm">
+                                Nome
                             </dt>
                         </div>
                         <div class="row">
-                            <dd class="col-5">
+                            <dd class="col-sm">
                                 @Html.DisplayFor(model => model.Name)
                             </dd>
                         </div>
                     </div>
-                    <div class="col-4 offset-3">
+                    <div class="col-sm">
                         <div class="row">
-                            <dt class="col-4">
-                                @Html.DisplayNameFor(model => model.HealthStatus)
+                            <dt class="col-sm">
+                                Status de Saúde
                             </dt>
                         </div>
                         <div class="row">
-                            <dd class="col-4">
+                            <dd class="col-sm">
                                 @Html.DisplayFor(model => model.HealthStatus)
                             </dd>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-10">
+                    <div class="col-sm">
                         <div class="row">
-                            <dt class="col-2">
-                                @Html.DisplayNameFor(model => model.HospitalizationReason)
+                            <dt class="col-sm">
+                                Motivo da Hospitalização:
                             </dt>
                         </div>
                         <div class="row">
-                            <dd class="col-2">
+                            <dd class="col-sm">
                                 @Html.DisplayFor(model => model.HospitalizationReason)
                             </dd>
                         </div>
@@ -63,29 +61,93 @@
                 </div>
             </div>
         </div>
-    </dl>
-</div>
-@{
-    if (Model.Lodge != null)
-    {
-    <form asp-controller="Lodgings" asp-action="DeliverAnimal">
-        <div class="form-group">
-            <div class="form-group">
-                <div class="form-group">
-                    <input name="id" class="form-control" hidden value="@Model.Lodge.Id" />
+        <div class="row">
+            <div class="col-sm">
+                <div class="row">
+                    <dt class="col-sm">
+                        Nome do Dono:
+                    </dt>
+                </div>
+                <div class="row">
+                    <dd class="col-sm">
+                        @Html.DisplayFor(model => model.Owner.Name)
+                    </dd>
                 </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Entregar Pet" class="btn btn-primary" />
+            <div class="col-sm">
+                <div class="row">
+                    <dt class="col-sm">
+                        Número de telefone:
+                    </dt>
+                </div>
+                <div class="row">
+                    <dd class="col-sm">
+                        @Html.DisplayFor(model => model.Owner.PhoneNumber)
+                    </dd>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="row">
+                    <dt class="col-sm">
+                        Endereço:
+                    </dt>
+                </div>
+                <div class="row">
+                    <dd class="col-sm">
+                        @Html.DisplayFor(model => model.Owner.Address)
+                    </dd>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="row">
+                    <dt class="col-sm">
+                        Número:
+                    </dt>
+                </div>
+                <div class="row">
+                    <dd class="col-sm">
+                        @Html.DisplayFor(model => model.Owner.Number)
+                    </dd>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="row">
+                    <dt class="col-sm">
+                        Cidade:
+                    </dt>
+                </div>
+                <div class="row">
+                    <dd class="col-sm">
+                        @Html.DisplayFor(model => model.Owner.City)
+                    </dd>
+                </div>
             </div>
         </div>
-    </form>
-    }
-}
+    </div>
 <div>
-    @Html.ActionLink("Edit", "GoToEditAnimal", new { Model.Id }) 
-    | <a asp-action="Index">Back to List</a>
-</div>
+        @{
+            if (Model.Lodge != null)
+            {
+                <form asp-controller="Lodgings" asp-action="DeliverAnimal">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <input name="id" class="form-control" hidden value="@Model.Lodge.Id" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Entregar Pet" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            }
+        }
+        <div>
+            @Html.ActionLink("Edit", "GoToEditAnimal", new { Model.Id })
+            | <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+
 
 @section Scripts {
     <script src="~/js/AnimalDetails.js"></script>

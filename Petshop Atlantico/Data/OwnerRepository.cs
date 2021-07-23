@@ -18,7 +18,7 @@ namespace Petshop_Atlantico.Data
             throw new NotImplementedException();
         }
 
-        public void Save(Owner animal)
+        public void Save(Owner owner)
         {
             throw new NotImplementedException();
         }
